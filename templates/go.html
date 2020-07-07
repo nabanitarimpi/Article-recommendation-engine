@@ -1,0 +1,38 @@
+{% extends "homepg.html" %}
+
+{% block content %}
+
+<h1 class="text-center">{{query}}</h1>
+<p  style="margin-bottom:80px">{{query_art_body}}</p>
+
+<h2 class="text-center">You may also like</h2>
+
+<!--<div class="w3-row-padding w3-center w3-margin-top">
+
+  <div class="w3-third">
+    <div class="w3-card w3-container" style="min-height:50px">
+      <p>{{rec[0]}}</p>
+    </div>
+  </div>
+
+  <div class="w3-third">
+    <div class="w3-card w3-container" style="min-height:50px">
+      <p>{{rec[1]}}</p>
+    </div>
+  </div>
+
+  <div class="w3-third">
+    <div class="w3-card w3-container" style="min-height:50px">
+      <p>{{rec[2]}}</p>
+    </div>
+  </div>
+
+</div>-->
+
+  <ul class="list-group">
+     {% for rec_name in rec %}
+       <li class="list-group-item text-center">{{rec_name}}</li>
+     {% endfor %} 
+  </ul>
+
+{% endblock %}

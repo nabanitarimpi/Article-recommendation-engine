@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Data Science</title>
+
+    <!--link to bootstrap cdn-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!--link to jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+
+body, html {
+  height: 100%;
+  line-height: 1.8;
+}
+
+/* Full height image header */
+.bgimg-1 {
+  background-position: top;
+  background-size: cover;
+  min-height: 70%;
+}
+
+.w3-bar .w3-button {
+  padding: 16px;
+}
+</style> 
+
+<body>
+
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-card" id="myNavbar">-->
+    <!-- Right-sided navbar links -->
+    <div class="w3-right w3-hide-small">
+      <a href="https://www.udacity.com/" class="w3-bar-item w3-button">Made with Udacity</a>
+      <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+    </div>
+  </div>
+</div>
+
+
+<div class="jumbotron">
+   {% block content %}
+    <div class="container-fluid no-padding">
+        <img src="/static/bkgimage.png" alt="datascience_image" class="img-responsive" style="width:100%;height:50%">
+        <div class="w3-display-left w3-text-white" style="padding:48px" id="home">
+          <span class="w3-jumbo w3-hide-small"><mark style="color:black">Data Science</mark></span><br>
+          <span class="w3-large" style="color:black; font-size:30px">Start learning today</span>
+        </div> 
+    </div>     
+</div>
+
+
+<div class="w3-container" style="padding:128px 16px" id="classify">
+  <div class="col-lg-4"></div>
+    <div class="col-lg-4 form-group-lg">
+      <h1 class="text-center">What do you want to learn today?</h1>
+      <form action="/go" method="get">
+         <input type="text" class="form-control form-control-lg w3-center" name="query" placeholder="Type here">
+         <div class="col-lg-offset-4" style="margin-top:15px">
+           <button type="submit" class="btn btn-lg btn-success">Submit</button>
+         </div>
+      </form>
+         <div class="col-4"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+    
+    <div class="page-header">
+       <h1 class="text-center">Top articles</h1>
+    </div>
+
+<div class="w3-row-padding w3-center w3-margin-top">
+
+ <div class="row" style="margin-bottom:25px">
+  <div class="w3-third">
+    <div class="w3-card w3-container" style="min-height:50px">
+      <p>{{select_top_headings[0]}}</p>
+    </div>
+  </div>
+
+  <div class="w3-third">
+    <div class="w3-card w3-container" style="min-height:50px">
+      <p>{{select_top_headings[1]}}</p>
+    </div>
+  </div>
+
+  <div class="w3-third">
+    <div class="w3-card w3-container" style="min-height:50px">
+      <p>{{select_top_headings[2]}}</p>
+    </div>
+  </div>
+ </div>
+
+ <div class="row" style="margin-bottom:25px">
+  <div class="w3-third">
+    <div class="w3-card w3-container" style="min-height:50px">
+      <p>{{select_top_headings[3]}}</p>
+    </div>
+  </div>
+
+  <div class="w3-third">
+    <div class="w3-card w3-container" style="min-height:50px">
+      <p>{{select_top_headings[4]}}</p>
+    </div>
+  </div>
+
+  <div class="w3-third">
+    <div class="w3-card w3-container" style="min-height:50px">
+      <p>{{select_top_headings[5]}}</p>
+    </div>
+  </div>
+ </div>
+
+ <div class="row">
+  <div class="w3-third">
+    <div class="w3-card w3-container" style="min-height:50px">
+      <p>{{select_top_headings[6]}}</p>
+    </div>
+  </div>
+
+  <div class="w3-third">
+    <div class="w3-card w3-container" style="min-height:50px">
+      <p>{{select_top_headings[7]}}</p>
+    </div>
+  </div>
+
+  <div class="w3-third">
+    <div class="w3-card w3-container" style="min-height:50px">
+      <p>{{select_top_headings[8]}}</p>
+    </div>
+  </div>
+ </div>
+ 
+
+
+</div>
+{% endblock %}
+</div>
+
+<!-- Contact Section -->
+<div class="w3-container" style="padding:128px 16px" id="contact">
+  <div class="marketing w3-center">
+    <h1 >Contact</h1>
+    <p class="marketing-byline w3-center">Let's get in touch</p>
+ 
+      <ul style="padding-left:650px; list-style: none">
+        <li style="float: left; padding: 10px">
+          <a href="https://github.com/nabanitarimpi">
+          <img src="/static/githublogo.png" alt="githublogo">
+          </a>  
+        </li>
+        <li style="float:left; padding: 10px">
+          <a href="https://www.linkedin.com/in/nabanita-ganguly-28512264/">
+          <img src="/static/linkedinlogo.png" alt="linkedinlogo">
+          </a>  
+        </li>
+        <li style="float:left">
+          <a href="https://medium.com/@nabanita.rimpi">
+          <img src="/static/mediumlogo.png" alt="mediumlogo">
+          </a>  
+        </li>
+      </ul>
+      <div style="clear:both"></div>  
+     
+  </div>
+</div> 
+
+
+<!-- Footer section -->
+<footer class="w3-center w3-black w3-padding-64">
+ <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+</footer>
+
+
+</body>
+</html>

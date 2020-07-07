@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 from sklearn.feature_extraction.text import CountVectorizer
 import recommender_functions as rf
+import joblib
 
 
 class RecommendationEngine():
@@ -235,6 +236,17 @@ class RecommendationEngine():
      
      return rec_ids, rec_names
 
+   def save_data(self):
+
+     """
+
+
+     """
+
+     joblib.dump(self.df, "df.pkl")
+     joblib.dump(self.df_content, "df_content.pkl")
+     joblib.dump(self.similarity_matrix, "similarity_mat.pkl")
+
 def main():
 
      """
@@ -261,6 +273,9 @@ def main():
         print(recommender.make_recommendations(user_id=8, num_rec=10)[1])
         print()
         print(recommender.make_recommendations(user_id=6000, num_rec=10)[1])
+
+        # save the cleanded dataframes
+        recommender.save_data()
 
      else:
         print('Please provide the filepath of the user article interaction '\
