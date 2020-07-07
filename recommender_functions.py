@@ -52,7 +52,7 @@ def get_top_sorted_users(user_id, df, user_item):
          an input user id
         
     df : pandas dataframe
-         dataframe as defined at the top of the notebook for the file user-item-interactions.csv
+         dataframe as defined at the top of the notebook from the file user-item-interactions.csv
     
     user_item : (pandas dataframe) matrix 
          a users by articles matrix where non-zero entries represents that a user has interacted with an article
@@ -100,7 +100,7 @@ def get_article_names(article_ids, df):
         a list of article ids
         
     df : pandas dataframe
-        dataframe as defined at the top of the notebook for the file user-item-interactions.csv
+        dataframe as defined at the top of the notebook from the file user-item-interactions.csv
     
     Returns
     ---------
@@ -125,7 +125,7 @@ def get_user_articles(user_id, df):
         an input user id
         
     df : pandas dataframe
-        dataframe as defined at the top of the notebook for the file user-item-interactions.csv
+        dataframe as defined at the top of the notebook from the file user-item-interactions.csv
     
     Returns
     ---------
@@ -173,7 +173,7 @@ def get_top_sorted_articles(article_ids, df):
 def text_to_word(text):
     
     """
-    A function to clean an input text. The steps followed for the text cleaning are :
+    A function to clean an input text. The steps followed from the text cleaning are :
      
      1. Normalization i.e. conversion to lower case and punctuation removal
      2. Tokenization 
@@ -239,16 +239,23 @@ def find_similar_articles(article_id, article_content, similarity_matrix):
     
     """
     
+    # find out which row of the dataframe does the input article id belong to
     article_row = np.where(article_content['article_id']==article_id)[0][0]
+
+    # find out the row numbers of similar articles
     similar_row = list(np.where(similarity_matrix[article_row] > 2)[0])
+
+    # store the corresponding similarity scores
     similarity_score = list(similarity_matrix[article_row, similar_row])
     
+    # store the ids of similar articles
     similar_id = list(article_content.iloc[similar_row]['article_id'])
     
     similar_dict = {}
     for similar_id,score in zip(similar_id, similarity_score):
         similar_dict[similar_id] = score
         
+    # sort the dictionary according to the similarity scores
     similar_dict = {k:v for k,v in sorted(similar_dict.items(), key=lambda x:x[1], reverse=True)}    
     
     return similar_id, similarity_score, similar_dict
